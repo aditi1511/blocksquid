@@ -18,7 +18,7 @@ def WaterType(frame,x=0,y=0,w=640,h=480):
     for i in WW:
         sumval[1]=sumval[1]+cv2.compareHist(imagehist, i, 0)
     label_identified=sumval.index(max(sumval))
-    return(label_identified)
+    return(labels[label_identified])
 def FlowRateClassifier(frame,nm,x=0,y=0,w=640,h=480):
     subtraction=cv2.cvtColor(cv2.absdiff(frame[y:y+h,x:x+w],nm[y:y+h,x:x+w]),cv2.COLOR_BGR2GRAY)
     _,thresh11 = cv2.threshold(subtraction,20,255,cv2.THRESH_BINARY)

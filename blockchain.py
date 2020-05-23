@@ -60,7 +60,37 @@ class Blockchain:
 WaterType=["Dirty Water","Fresh Water"]
 FlowRate=[1000,2000,3000,4000]
 IndustryID=["INS23ASW","IND23ASW","INS44ASW","INS24ASW","INS23LKW"]
-from random import randint as ri
+#WasteWater Implementation
+import cv2
+from WaterClassifier import WaterType,FlowRateClassifier
+import numpy as np
+cam=cv2.VideoCapture("demovideo.mp4") #Change this to cv2.VideoCapture(0) for using real-time camera feed
+x=203
+y=97
+w=39
+h=36
+_,frame=cam.read()
+Background=cv2.resize(frame,(640,480)).copy()
+skipFrames=140 #These are initial frames that need to be skipped before the actual flow starts
+#Note that in real time video capture this won't be required as water is flowing and that will be captured by camera frame in continious basis
+for i in range(skipFrames):
+    _,frame=cam.read()
+framerates=[]
+labels=['Fresh water','Waste Water']
+watertypes=[]
+#Frames=[]
+count=0
+def ProcessFrame(Frame):
+    Frame=cv2.resize(Frame,(640,480))
+    wTT=labels[not(labels.index(WaterType(Frame,x,y,w,h)))]
+    fRR=FlowRateClassifier(Frame,Background,x,y,w,h)
+    print(f"wtt={wTT},and frame rate= {fRR}")
+    CreditScore=(fRR*0.01)+(10**(not(labels.index(WaterType(Frame,x,y,w,h))))*0.09)-0.2 #Credit earned
+    waterLabel=labels[not(WaterType(Frame,x,y,w,h))] #Water Type Detected
+    print(f"Water Label={wTT} and CreditScore={CreditScore}% and frameRate={fRR}")
+
+
+#from random import randint as ri
 # Creating a Web App
 app = Flask(__name__)
 
@@ -68,12 +98,14 @@ app = Flask(__name__)
 blockchain = Blockchain()
 
 # Mining a new block
-
+#Random variables
+wT='Clean Water'
+fR=0
+iID="ASC6368"
 @app.route('/mine_block', methods = ['GET'])
 def mine_block():
-    wT=WaterType[ri(0,len(WaterType)-1)]
-    fR=FlowRate[ri(0,len(FlowRate)-1)]
-    iID=IndustryID[ri(0,len(IndustryID)-1)]
+    _,frame=cam.read()
+    ProcessFrame(frame)
     previous_block = blockchain.get_previous_block()
     previous_proof = previous_block['proof']
     proof = blockchain.proof_of_work(previous_proof)
