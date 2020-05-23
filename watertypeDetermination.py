@@ -1,5 +1,4 @@
 #This code is just to map hsv values and see what type of water is present based on it's color properties
-
 import cv2
 import numpy as np
 import glob
