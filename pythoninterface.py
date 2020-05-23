@@ -1,20 +1,32 @@
 import eel
 import cv2
+from WaterClassifier import WaterType,FlowRateClassifier
 VideoFile=cv2.VideoCapture("demovideo.mp4")
+_,Background=VideoFile.read()
+labels={0:'Fresh water',1:'Waste Water'}
 eel.init('web')
 @eel.expose
 def my_python_method(param1,param2):
     print(param1+param2)
 @eel.expose
 def flowfeedback():
-    _,Frame=VideoFile.read()
-    if _==False:
-        return("False")
-    Frame=cv2.resize(Frame,(640,480))
-    gray=cv2.cvtColor(Frame,cv2.COLOR_BGR2GRAY)
-    ret,thresh = cv2.threshold(gray,127,255,cv2.THRESH_BINARY)
-    return(cv2.countNonZero(thresh))
-    #cv2.imshow("Thresh",thresh)
+    framerates=[]
+    watertypes=[]
+    Frames=[]
+    count=0
+    while True:
+        _,Frame=VideoFile.read()
+        if _==False:
+            break
+        else:
+            Frame=cv2.resize(Frame,(640,480))
+            Frames.append(Frame)
+            watertypes.append(WaterType(Frame,x=203,y=97,w=39,h=36))
+            framerates.append(FlowRateClassifier(Frame,Background,x=203,y=97,w=39,h=36))
+    #print(watertypes)
+    CreditScore=round(10**(not(max(watertypes,key=watertypes.count))+1)*int(sum(framerates)/len(framerates))*0.0001,2)
+    return(f"{labels[not(max(watertypes,key=watertypes.count))]}#{int(sum(framerates)/len(framerates))}#{CreditScore}")
+            
 eel.start('main.html',block=False)
 #eel.my_javascript_function('Hello',' World')
 while True:
