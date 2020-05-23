@@ -15,6 +15,8 @@ Water is being wasted and polluted so much, that it is happening at a rate that 
 - Analyze the flow rate of water in `cubic pixels/sec` and measure the volume consumed.
 - Accordingly measure the Performance Index, Flow Credits, etc.
 - Record all these value onto the blockchain so it's immutable.
+- Prevent any kind of _tampering_ by water industries and _monitor_ the water in efficient way and hence motivate them to follow the best practice and conserve water.
+- Based on the consumption, the credit will be distributed to the consumers, which will motivate and help them consume the water resources in efficient and non-destructing manner.
 
 ## How we built it
 
