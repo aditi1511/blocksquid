@@ -1,6 +1,8 @@
 import pickle
 import numpy as np
 import cv2
+
+
 labels={0:'Fresh water',1:'Waste Water'}
 sumval=[0,0]
 with open('datasetdictionary.pkl','rb') as f:  # Python 3: open(..., 'rb')
