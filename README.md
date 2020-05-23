@@ -4,6 +4,8 @@ So the idea of building such a project came from the fact that how ruthless we h
 
 Water is being wasted and polluted so much, that it is happening at a rate that we never imagined. So we decided to build a project which monitors the water consumption, the cleanliness of the water being thrown out, etc. and charges accordingly.
 
+A very important thing to be noted here is that about water tampering which is a common problem across all over the world. With the implementation of blockchain on timely basis, we not only prevent people from unfair practices but also generate a credit distribution system to motivate them to take their steps in conservation of this precious resource and utilize them wisely.
+
 > And guess what?\
 > It record all this data on a blockchain, so it never alters once recorded!
 
@@ -12,7 +14,7 @@ Water is being wasted and polluted so much, that it is happening at a rate that 
 ### The project basically does the following things:
 
 - Take input from the camera, set on the flow of the water.
-- Analyze the flow rate of water in `cubic pixels/sec` and measure the volume consumed.
+- Analyze the flow rate of water in `square pixels/frame` and measure the volume consumed.
 - Accordingly measure the Performance Index, Flow Credits, etc.
 - Record all these value onto the blockchain so it's immutable.
 - Prevent any kind of _tampering_ by water industries and _monitor_ the water in efficient way and hence motivate them to follow the best practice and conserve water.
@@ -20,17 +22,21 @@ Water is being wasted and polluted so much, that it is happening at a rate that 
 
 ## How we built it
 
-> - The main function of real world observation is implemented through **OpenCV** using a camera.
+> - The main function of real world observation is implemented through **OpenCV** using a camera. In the given code, we have implemented our project using pre-recorded video but that can be easily altered by changing the statement:
+> cam=cv2.VideoCapture("videoname.mp4") 
+to
+> cam=cv2.VideoCapture(0) #Or whatever external cam is being used
 
 ![OpenCV Working](https://github.com/sedhha/blocksquid/blob/master/graphicfiles/background.gif)
 
-> - The blockchain is completely implemented in Python for simplicity.
+> - A very simple blockchain protocol is being implemented in Python for simplicity and learning friendly approach.
 
 
 ### This is how it works:
 
-- `WatertypeDetermination.py` => Add the path for cropped images of fresh water and waste water
-- `WaterClassifier.py` => Necessary functions to execute water quality and flow rate
+- `WatertypeDetermination.py` => A code to create histograms which then
+will help in colour comparision. Add the path for cropped images of fresh water and waste water
+- `WaterClassifier.py` => Necessary functions to execute water quality and flow rate.
 
 ![Flow Demo - OpenCV](https://github.com/sedhha/blocksquid/blob/master/graphicfiles/demo4.gif)
 ![Pixel Variation - OpenCV](https://github.com/sedhha/blocksquid/blob/master/graphicfiles/pixelvariation.gif)
@@ -48,7 +54,7 @@ Water is being wasted and polluted so much, that it is happening at a rate that 
 >
 > - Reading the real world data i.e. _hardware -> software_
 > - Writing the data to the blockchain accordingly by averaging out values.
-> - Implementing the NEAR API in our project.
+> - Attempting to implement the NEAR API in our project. 
 
 ## Accomplishments that we're proud of
 
