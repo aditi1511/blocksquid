@@ -1,0 +1,58 @@
+body
+{
+  background-color: #3769C3;
+}
+table{
+  margin-left: auto;
+}
+.Header
+{
+  color: white;
+  font-family: 'Balsamiq Sans', cursive;
+  text-align: center;
+}
+.btn
+{
+  margin-top: 2%;
+  margin-left: 48%;
+}
+.Description
+{
+  height: 20%;
+  width: 50%;
+  background-color: green;
+  text-align: center;
+  margin-left: 25%;
+  margin-bottom: 5%;
+}
+.DescriptionCard
+{
+  color: white;
+  font-family: 'Balsamiq Sans', cursive;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 1%;
+
+}
+.TableC
+{
+  margin-left: 33%;
+}
+.TableHead
+{
+  text-align: center;
+  border: 1px solid white;
+  background-color: #5B9BD5;
+  padding: 1% 2%;
+  color: white;
+  font-family: 'Lora', serif;
+}
+.TableData
+{
+  text-align: center;
+  background-color: #D2DEEF;
+  padding: 1% 2%;
+  color: black;
+  font-family: 'Lora', serif;
+}
