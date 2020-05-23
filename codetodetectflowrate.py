@@ -1,6 +1,7 @@
 #This is the code to select ROI create background image and note the threshold value for the image
 #Note that in our project the camera remains static
 
+
 #Importing the libraries
 import cv2
 import  numpy as np
