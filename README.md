@@ -1,4 +1,5 @@
 ## Inspiration
+![graphicfiles/WebDesign.png]()
 
 So the idea of building such a project came from the fact that how ruthless we humans are in consuming the resources provided to us by nature. One such important resource is **water**.
 
@@ -10,6 +11,8 @@ A very important thing to be noted here is that about water tampering which is a
 > It record all this data on a blockchain, so it never alters once recorded!
 
 ## What it does?
+![graphicfiles/Variation.jpg]()
+![graphicfiles/Variation2.jpg]()
 
 ### The project basically does the following things:
 
