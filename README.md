@@ -20,10 +20,12 @@ Water is being wasted and polluted so much, that it is happening at a rate that 
 
 ## How we built it
 
-> The main function of real world observation is implemented through **OpenCV** using a camera.
-> The blockchain is completely implemented in Python for simplicity.
+> - The main function of real world observation is implemented through **OpenCV** using a camera.
 
 ![OpenCV Working](https://github.com/sedhha/blocksquid/blob/master/graphicfiles/background.gif)
+
+> - The blockchain is completely implemented in Python for simplicity.
+
 
 ### This is how it works:
 
