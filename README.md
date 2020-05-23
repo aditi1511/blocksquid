@@ -21,23 +21,24 @@ Water is being wasted and polluted so much, that it is happening at a rate that 
 ## How we built it
 
 > The main function of real world observation is implemented through **OpenCV** using a camera.
+> The blockchain is completely implemented in Python for simplicity.
 
-![OpenCV Working](/blocksquid/graphicfiles/background.gif)
+![OpenCV Working](https://github.com/sedhha/blocksquid/blob/master/graphicfiles/background.gif)
 
 ### This is how it works:
 
 - `WatertypeDetermination.py` => Add the path for cropped images of fresh water and waste water
 - `WaterClassifier.py` => Necessary functions to execute water quality and flow rate
 
-![Flow Demo - OpenCV](/blocksquid/graphicfiles/demo4.gif)
-![Pixel Variation - OpenCV](/blocksquid/graphicfiles/pixelvariation.gif)
+![Flow Demo - OpenCV](https://github.com/sedhha/blocksquid/blob/master/graphicfiles/demo4.gif)
+![Pixel Variation - OpenCV](https://github.com/sedhha/blocksquid/blob/master/graphicfiles/pixelvariation.gif)
 
 - `blockchain.py` => File to start mining block
 - `blockchainv0.py` => V0 of `blockchain.py`
 - `codetodetectflowrate.py` => Press R to print selectedROI (while running the program) and some other variables code has all the explanation for the same
 
-![ROI1](/blocksquid/graphicfiles/selectroi.jpg)
-![ROI2](/blocksquid/graphicfiles/selectROI2.jpg)
+![ROI1](https://github.com/sedhha/blocksquid/blob/master/graphicfiles/selectroi.jpg)
+![ROI2](https://github.com/sedhha/blocksquid/blob/master/graphicfiles/selectROI2.jpg)
 
 ## Challenges we ran into
 
